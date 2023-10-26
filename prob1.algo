@@ -1,0 +1,32 @@
+ALGORITHM distinct
+VAR
+    set1 : ARRAY_OF INTEGER[10];
+    set2 : ARRAY_OF INTEGER[10];
+    i , j , sum: INTEGER;
+BEGIN
+    FOR i FROM 0 TO 9 STEP 1  DO
+        write ("insert elements of set1");
+        read(set1[i]);
+    END_FOR
+    FOR j FROM 0 TO 9 STEP 1  DO
+        write ("insert elements of set2");
+        read(set2[j]);
+    END_FOR
+    FOR i FROM 0 TO 9 STEP 1  DO
+        IF (set1[i] <> set2[j]) THEN
+        sum:=sum+set1[i]
+        ELSE 
+        sum:=0
+    END_IF
+    END_FOR
+    Write(sum)
+    FOR j FROM 0 TO 9 STEP 1  DO
+    IF (set2[j] <> set1[i]) THEN
+        sum:=sum+set2[j]
+        ELSE 
+        sum:=0
+    END_IF
+    END_FOR
+    Write (sum)
+
+END

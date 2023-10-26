@@ -1,0 +1,85 @@
+//procedure//
+PROCEDURE dot_product(v1,v2:ARRAY_OF INTEGER[10], VAR ps : INTEGER)
+VAR 
+    i : INTEGER;
+BEGIN
+    IF(v1.length = v2.length) THEN
+        FOR i FROM 0 TO v1.length DO
+            ps := ps + v1[i] * v2[i];
+        END_FOR
+        Write("The Dot Product is ",ps);
+    ELSE
+        Write("V length not equale");
+    END_IF
+END
+
+ALGORITHM DOT_PRODUCT
+VAR
+    V1 : ARRAY_OF INTEGER[10];
+    V2 : ARRAY_OF INTEGER[10];
+    ps,s1,s2,i : INTEGER := 0 ; 
+BEGIN
+    Write("Enter first vector size (max is 10)");
+    Read(s1);
+    FOR i FROM 0 TO s1 DO
+        Read(V1[i])
+    END_FOR
+
+    Write("Enter secend vector size (max is 10)");
+    Read(s2);
+    FOR i FROM 0 TO s2 DO
+        Read(V2[i])
+    END_FOR
+
+    dot_product(V1,V2,ps);
+
+    IF (ps = 0) THEN
+        Write("Vectors are orthogonal");
+    ELSE
+        Write("Vectors are not orthogonal");
+    END_IF
+END
+
+//fucntion//
+FUNCTION dot_product(v1,v2: ARRAY_OF INTEGER[10]): INTEGER
+VAR
+    ps,i : INTEGER := 0;
+BEGIN
+
+    IF(v1.length = v2.length) THEN
+        FOR i FROM 0 TO v1.length DO
+            ps := ps + v1[i] * v2[i];
+        END_FOR
+        RETURN ps;
+    ELSE
+        Write("V length not equale");
+        RETURN NaN;
+    END_IF
+END
+
+ALGORITHM DOT_PRODUCT
+VAR
+    V1,V2 : ARRAY_OF INTEGER[10];
+    ps,s1,s2,i : INTEGER := 0 ; 
+BEGIN
+    Write("Enter first vector size (max is 10)");
+    Read(s1);
+    FOR i FROM 0 TO s1 DO
+        Read(V1[i])
+    END_FOR
+
+    Write("Enter second vector size (max is 10)");
+    Read(s2);
+    FOR i FROM 0 TO s2 DO
+        Read(V2[i])
+    END_FOR
+
+    ps := dot_product(V1,V2);
+
+    IF (ps = 0) THEN
+        Write("Vectors are orthogonal");
+    ELSE
+        Write("Vectors are not orthogonal");
+    END_IF
+END
+
